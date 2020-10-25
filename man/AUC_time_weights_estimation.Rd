@@ -25,12 +25,12 @@ In matrix formulation, the AUC of the outcome \mjseqn{Y} can be expressed as \mj
 \mjsdeqn{W_j = \frac{t_{j} - t_{j-1}}{2} \text{ if } j=m}
 \mjsdeqn{W_j = \frac{t_{j+1} - t_{j-1}}{2} \text{ otherwise}}
 
-\strong{Lagrange method:} (see \code{\link[DeltaAUCpckg]{AUC_Lagrange_Cjp_coefficients}} for the definition of the Cjp coefficients)
+\strong{Lagrange method:} (see \code{\link[AUCtest]{AUC_Lagrange_Cjp_coefficients}} for the definition of the Cjp coefficients)
 \mjsdeqn{W_j = \frac{C_{[2][j-1]}}{\prod_{l=0 ;\ l\neq (j-1)}^{P=2} (t_j-t_{j+1})} + \sum_{p=0}^{P=3} \frac{C_{[j-1+p][3-p]}}{\prod_{l=0 ;\ l\neq (3-p)}^{P=3} (t_j-t_{j-3+p+l})} \text{ if } j=1,2,3}
 \mjsdeqn{W_j = \frac{C_{[m][j-(m-2)]}}{\prod_{l=0 ;\ l\neq (j-(m-2))}^{P=2} (t_j-t_{j-2+l})} + \sum_{p=0}^{m-j} \frac{C_{[j-1+p][3-p]}}{\prod_{l=0 ;\ l\neq (3-p)}^{P=3} (t_j-t_{j-3+p+l})} \text{ if } j=m-2,m-1,m}
 \mjsdeqn{W_j = \sum_{p=0}^{m-j} \frac{C_{[j-1+p][3-p]}}{\prod_{l=0 ;\ l\neq (3-p)}^{P=3} (t_j-t_{j-3+p+l})} \text{ othermise}}
 
-\strong{Spline method:}  (see \code{\link[DeltaAUCpckg]{AUC_Spline_matrix_A}} and \code{\link[DeltaAUCpckg]{AUC_Spline_matrix_B}} for the definition of Matrices A and B)
+\strong{Spline method:}  (see \code{\link[AUCtest]{AUC_Spline_matrix_A}} and \code{\link[AUCtest]{AUC_Spline_matrix_B}} for the definition of Matrices A and B)
 \mjsdeqn{W_j = \sum_{p=2}^m -\frac{(t_p-t_{p-1})^3}{24}(u_{pj}+u_{p-1j}) + W_j^{trap.}}
 where \mjseqn{(u_{pj})} is the element \mjseqn{U(p,j)} with \mjseqn{U} a matrix defined as \mjseqn{U = A^{-1}B}.
 }
