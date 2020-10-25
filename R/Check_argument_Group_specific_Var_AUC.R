@@ -256,9 +256,9 @@ Check_argument_Group_specific_Var_AUC <- function(MEM_Pol_group,time,Groups,meth
                   )
                 }else{
                   for(g in 1:length(Model_features$Groups)){
-                    if(isFALSE(is.numeric(Marginal_dynamics$boundary.knots[[g]]) || length(Marginal_dynamics$boundary.knots[[g]] != 2))){
+                    if(isFALSE(is.numeric(Marginal_dynamics$boundary.knots[[g]]) || is.null(Marginal_dynamics$boundary.knots[[g]]) || length(Marginal_dynamics$boundary.knots[[g]] != 2))){
                       ArgumentCheck::addError(
-                        msg = paste("The variable 'boundary.knots' in 'Marginal.dyn.feature' in Group",Model_features$Groups[[g]]," must be a vector of 2 numerical values",sep=""),
+                        msg = paste("The variable 'boundary.knots' in 'Marginal.dyn.feature' in Group",Model_features$Groups[[g]]," must be either NULL or a vector of 2 numerical values",sep=""),
                         argcheck = Check_Model_features_dyn_boundary
                       )
                     }
